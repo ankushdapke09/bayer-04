@@ -1,5 +1,17 @@
 const mongoose = require('mongoose');
 
+const shiftPreferenceSchema = new mongoose.Schema({
+  date: {
+    type: Date,
+    required: true
+  },
+  shift: {
+    type: String,
+    required: true,
+    enum: ['Morning', 'Afternoon', 'Night']
+  },
+});
+
 const staffSchema = new mongoose.Schema({
   staffId: {
     type: String,
@@ -34,10 +46,7 @@ const staffSchema = new mongoose.Schema({
     trim: true,
     maxlength: [100, 'Specialization cannot exceed 100 characters']
   },
-  shiftPreference: [{
-    type: String,
-    enum: ['Morning', 'Afternoon', 'Night']
-  }],
+  shiftPreference: [shiftPreferenceSchema],
   contactNumber: {
     type: String,
     required: [true, 'Contact number is required'],
