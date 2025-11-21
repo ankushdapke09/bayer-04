@@ -29,7 +29,7 @@ export const staffApi = createApi({
       invalidatesTags: ["Staff"],
     }),
     bookShifts: builder.mutation({
-      query: ({ bookingData }) => ({
+      query: ( bookingData ) => ({
         url: `/staff/book-shift`,
         method: "POST",
         body: bookingData,
