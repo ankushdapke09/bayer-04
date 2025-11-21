@@ -30,7 +30,7 @@ export const staffApi = createApi({
     }),
     bookShifts: builder.mutation({
       query: ( bookingData ) => ({
-        url: `/staff/book-shift`,
+        url: 'shifts/assign',
         method: "POST",
         body: bookingData,
       }),
