@@ -34,7 +34,7 @@ import { useBookShiftsMutation } from "../src/RTK/staffsService";
 
   const handleBook = () => {
     const booking = {
-      staffId: data.staffId,
+      staffId: data._id,
       date: selectedDate,
       shift: selectedShift,
     };
