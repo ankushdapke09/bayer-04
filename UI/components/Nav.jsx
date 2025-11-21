@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-export default function AppNavbar() {
+const AppNavbar =()=> {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -12,7 +12,7 @@ export default function AppNavbar() {
         <Navbar.Collapse id="main-navbar">
           <Nav className="me-auto">
 
-            <LinkContainer to="/">
+            <LinkContainer to="/allStaffs">
               <Nav.Link>All Staffs</Nav.Link>
             </LinkContainer>
 
@@ -30,3 +30,5 @@ export default function AppNavbar() {
     </Navbar>
   );
 }
+
+export default AppNavbar;
