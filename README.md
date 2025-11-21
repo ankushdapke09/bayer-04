@@ -1,25 +1,29 @@
 # bayer-04
 Bayer-hospital team-04
  Tech Stack
-Frontend (UI)
+**Frontend (UI)**
 
-eact.js
+React.js
 Redux
 React Bootstrap
 
-Backend
 
+**Authentication:**
+JWT
+
+**Backend**
 Express.js
 Helmet (security headers)
 Mongoose (MongoDB ODM)
 
-creating login page
+1.creating login page
 
-once admin login -> add staff ->view staff
+2. once admin login -> add staff ->view staff
 ->View Staff (Get API)
 ->Add Staff(Post API)
 
-**Admin to create shift by date with available staff
+3. Admin to create shift by date with available staffs
+   
 UI
 1.Display number of assigned and unassigned staff by date.
 2.Display the staff in table with assigned shift.
@@ -33,6 +37,23 @@ UI
 
 
 ![WhatsApp Image 2025-11-21 at 11 56 14 AM](https://github.com/user-attachments/assets/4042bac2-ff81-447f-9390-e6faadd50b62)
+
+{
+  "_id": "staff123",
+  "name": "John Doe",
+  "role": "Nurse",
+
+  "shifts": [
+    {
+      "date": "2025-11-21",
+      "shift": "morning"
+    },
+    {
+      "date": "2025-11-22",
+      "shift": "night"
+    }
+  ]
+}
 
 
 
