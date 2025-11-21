@@ -1,9 +1,12 @@
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setToken } from "../src/reducers/access";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -18,7 +21,8 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/allStaffs');
+    dispatch(setToken("dummy-token"));
+    navigate("/allStaffs");
   };
 
   return (
