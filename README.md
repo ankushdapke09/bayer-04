@@ -56,9 +56,7 @@ UI
 }
 
 
-
-
-
+We are going to expose an API to get unassigned staffs to assign the shifts 
 
 
 
