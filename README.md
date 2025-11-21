@@ -15,7 +15,9 @@ Express.js
 Helmet (security headers)
 Mongoose (MongoDB ODM)
 
-1. cCeating login page
+**Implementing all the shifts are daily basis**
+
+1. Creating login page
 
 2. once admin login -> add staff ->view staff
 ->View Staff (Get API)
