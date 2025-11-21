@@ -1,6 +1,6 @@
-export const MORNING = "MORNING";
-export const AFTERNOON = "AFTERNOON";
-export const NIGHT = "NIGHT";
+export const MORNING = "Morning";
+export const AFTERNOON = "Afternoon";
+export const NIGHT = "Night";
 
 export const ROLE_OPTIONS = [
   { value: "", label: "Select Role" },

@@ -28,7 +28,15 @@ export const staffApi = createApi({
       }),
       invalidatesTags: ["Staff"],
     }),
+    bookShifts: builder.mutation({
+      query: ({ bookingData }) => ({
+        url: `/staff/book-shift`,
+        method: "POST",
+        body: bookingData,
+      }),
+      invalidatesTags: ["Staff"],
+    }),
   }),
 });
 
-export const { useGetStaffsQuery, useAddStaffMutation } = staffApi;
+export const { useGetStaffsQuery, useAddStaffMutation, useBookShiftsMutation } = staffApi;
