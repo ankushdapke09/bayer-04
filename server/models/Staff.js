@@ -37,7 +37,7 @@ const staffSchema = new mongoose.Schema({
   },
   department: {
     type: String,
-    required: [true, 'Department is required'],
+    required: [false, 'Department is required'],
     trim: true,
     maxlength: [50, 'Department cannot exceed 50 characters']
   },
@@ -49,7 +49,7 @@ const staffSchema = new mongoose.Schema({
   shiftPreference: [shiftPreferenceSchema],
   contactNumber: {
     type: String,
-    required: [true, 'Contact number is required'],
+    required: [false, 'Contact number is required'],
     validate: {
       validator: function(v) {
         return /^[\d\s-+()]{10,15}$/.test(v);

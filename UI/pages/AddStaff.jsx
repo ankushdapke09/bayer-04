@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Card, Form, Button, Container, Row, Col } from "react-bootstrap";
 import { ROLE_OPTIONS } from "../constant/AppConstant";
+import { useAddStaffMutation } from "../src/RTK/staffsService";
 
 export default function StaffForm() {
+  const [addStaff] = useAddStaffMutation();
   const [formData, setFormData] = useState({
     staffId: "",
     name: "",
     role: "",
+    email:"",
     shiftPreference: [],
     address: { street: "", city: "", state: "", zipCode: "" },
   });
@@ -20,7 +23,7 @@ export default function StaffForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Staff Form Data:", formData);
+    addStaff(formData);
   };
 
   return (
@@ -48,6 +51,17 @@ export default function StaffForm() {
                   placeholder="Enter Staff Name"
                   name="name"
                   value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>email ID</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="email"
+                  name="email"
+                  value={formData.email}
                   onChange={handleChange}
                   required
                 />

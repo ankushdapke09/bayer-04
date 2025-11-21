@@ -12,10 +12,9 @@ const generateToken = (id) => {
 };
 
 exports.validateLogin = [
-  body('name')
+  body('email')
     .trim()
-    .isLength({ min: 3 })
-    .withMessage('Username must be at least 3 characters long'),
+    .isEmail(),
   body('password')
     .isLength({ min: 6 })
     .withMessage('Password must be at least 6 characters long'),
@@ -26,9 +25,8 @@ exports.login = async (req, res) => {
   console.log('--req.bod',req.body);
   
   try {
-    const { name, password } = req.body;
-
-    const admin = await Admin.findOne({ name: name.toLowerCase() });
+    const { email, password } = req.body;
+    const admin = await Admin.findOne({ email });
     if (!admin || !admin.isActive) {
       logger.warn(`Failed login attempt for name: ${name}`);
       return res.status(401).json({
@@ -39,7 +37,7 @@ exports.login = async (req, res) => {
 
     const isPasswordValid = await admin.comparePassword(password);
     if (!isPasswordValid) {
-      logger.warn(`Failed login attempt for name: ${name}`);
+      logger.warn(`Failed login attempt for name: ${email}`);
       return res.status(401).json({
         success: false,
         message: 'Invalid credentials'
@@ -50,8 +48,9 @@ exports.login = async (req, res) => {
     await admin.save();
 
     const token = generateToken(admin._id);
+    debugger
 
-    logger.info(`Admin ${name} logged in successfully`);
+    logger.info(`Admin ${email} logged in successfully`);
 
     res.json({
       success: true,
